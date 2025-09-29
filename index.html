@@ -1,34 +1,24 @@
-<!doctype html>
-<html lang="th">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Add Cards — Fetch + HOF</title>
-<!-- Link to external CSS -->
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Higher-Order Methods & Fetch API Task</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-<header>
-<div>
-<h1>Live demo — สร้างการ์ดด้วย JavaScript (HOF) + Fetch API</h1>
-<p class="small">คลิกปุ่มเพื่อเพิ่มการ์ด: สร้างจากข้อมูลในหน้า (HOF) หรือดึงจาก API (Fetch)</p>
-</div>
-<div class="controls">
-<button id="add-local">Add card (HOF)</button>
-<button id="load-fetch" class="ghost">Load from Fetch API</button>
-<button id="clear" class="ghost">Clear</button>
-</div>
-</header>
 
-<section class="grid" id="cardGrid" aria-live="polite"></section>
+    <h1>Student Task: Dynamic Card Generation</h1>
 
-<footer class="note">
-ตัวอย่างนี้ใช้: <code>map</code>, <code>forEach</code>, <code>filter</code> (higher order functions)
-และใช้ Fetch API ดึง JSON จาก <code>jsonplaceholder.typicode.com</code>
-</footer>
-</div>
+    <div class="controls">
+        <button id="addCardsHOF">Add 3 Cards (HOF & Map)</button>
+        
+        <button id="addCardsFetch">Fetch & Add Cards (Fetch API)</button>
+    </div>
 
-<script src="app.js"></script>
+    <div id="card-container">
+        </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

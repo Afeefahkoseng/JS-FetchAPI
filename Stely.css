@@ -1,102 +1,65 @@
-:root {
-    --bg: #f4f6fb;
-    --card: #ffffff;
-    --accent: #3b82f6
-}
-
 body {
-    font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
-    margin: 0;
-    background: var(--bg);
-    color: #0f172a
-}
-
-.wrap {
-    max-width: 1000px;
-    margin: 36px auto;
-    padding: 20px
-}
-
-header {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: space-between
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
 }
 
 h1 {
-    margin: 0;
-    font-size: 20px
+    color: #333;
+    text-align: center;
 }
 
 .controls {
-    display: flex;
-    gap: 8px
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 button {
-    background: var(--accent);
+    padding: 10px 15px;
+    margin: 5px;
     border: none;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-button.ghost {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid rgba(59, 130, 246, 0.2)
+#addCardsHOF {
+    background-color: #007bff;
+    color: white;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 18px
+#addCardsFetch {
+    background-color: #28a745;
+    color: white;
+}
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .card {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    display: flex;
-    flex-direction: column;
-    gap: 8px
-}
-
-.thumb {
-    width: 100%;
-    height: 120px;
+    background-color: white;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    object-fit: cover;
-    background: linear-gradient(135deg, #e6eefc, #f8fafc)
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
-.title {
-    font-weight: 600
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.meta {
-    font-size: 13px;
-    color: #475569
+.card h3 {
+    margin-top: 0;
+    color: #0056b3;
 }
 
-.small {
-    font-size: 13px;
-    color: #94a3b8
-}
-
-footer.note {
-    margin-top: 12px;
-    color: #475569;
-    font-size: 13px
-}
-
-@media (max-width:520px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start
-    }
+.card p {
+    color: #555;
 }
