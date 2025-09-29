@@ -1,41 +1,31 @@
-<!doctype html>
-<html lang="th">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>JS HOF + FetchAPI — Card Gallery</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Gallery ง่าย ๆ</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+    h1 { text-align: center; }
+    .controls { text-align: center; margin-bottom: 20px; }
+    button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .card { background: white; padding: 10px; width: 200px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card img { width: 100%; height: 120px; object-fit: cover; border-radius: 5px; }
+    .card h3 { font-size: 16px; margin: 5px 0; }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <header class="header">
-      <h1>Card Gallery — JS HOF & FetchAPI</h1>
-      <p class="sub">กดปุ่มเพื่อดึง/เพิ่มการ์ด ใช้ map / filter / reduce / higher-order functions</p>
-    </header>
 
-    <section class="controls">
-      <div class="left-controls">
-        <input id="searchInput" type="search" placeholder="ค้นหาชื่อการ์ด..." />
-        <button id="fetchBtn">Load sample cards</button>
-        <button id="statsBtn">แสดงสถิติ</button>
-      </div>
+  <h1>Card Gallery ง่าย ๆ</h1>
 
-      <form id="addForm" class="add-form" autocomplete="off">
-        <input name="title" id="titleInput" placeholder="ชื่อการ์ด (required)" required />
-        <input name="url" id="urlInput" placeholder="URL รูป (ว่างได้ — จะใส่รูปแทน)" />
-        <button type="submit">เพิ่มการ์ด</button>
-      </form>
-    </section>
+  <div class="controls">
+    <button id="loadCardsBtn">โหลดการ์ดตัวอย่าง</button>
+    <button id="addCardBtn">เพิ่มการ์ดเอง</button>
+  </div>
 
-    <section id="gallery" class="gallery" aria-live="polite">
-      <!-- cards will be injected here -->
-    </section>
+  <div class="gallery" id="gallery"></div>
 
-    <footer class="footer">
-      <small>ตัวอย่างใช้ข้อมูลจาก JSONPlaceholder (https://jsonplaceholder.typicode.com)</small>
-    </footer>
-  </main>
-
-  <script src="app.js" defer></script>
+  <script src="app.js"></script>
 </body>
 </html>
