@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card Gallery ง่าย ๆ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Add Cards — Fetch + Higher-Order Functions</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Live demo — สร้างการ์ดด้วย JavaScript (HOF) + Fetch API</h1>
+        <p class="small">
+          คลิกปุ่มด้านขวาเพื่อเพิ่มการ์ด: แบบสร้างจากข้อมูลในหน้า (ใช้ higher-order functions)
+          หรือดึงจาก API (Fetch)
+        </p>
+      </div>
+      <div class="controls">
+        <button id="add-local">Add card (HOF)</button>
+        <button id="load-fetch" class="ghost">Load from Fetch API</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </header>
 
-  <h1>Card Gallery ง่าย ๆ</h1>
+    <section class="grid" id="cardGrid" aria-live="polite"></section>
 
-  <div class="controls">
-    <button id="loadCardsBtn">โหลดการ์ดตัวอย่าง</button>
-    <button id="addCardBtn">เพิ่มการ์ดเอง</button>
+    <footer class="note">
+      ตัวอย่างนี้ใช้: map, forEach, filter (higher order functions) เพื่อแปลงข้อมูลเป็น DOM elements 
+      และใช้ Fetch API ดึง JSON จาก <code>jsonplaceholder.typicode.com</code>
+    </footer>
   </div>
-
-  <div class="gallery" id="gallery"></div>
 
   <script src="app.js"></script>
 </body>
