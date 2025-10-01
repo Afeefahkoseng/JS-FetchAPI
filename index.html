@@ -1,30 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Add Cards — Fetch + Higher-Order Functions</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cards — HOF & FetchAPI</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Live demo — สร้างการ์ดด้วย JavaScript (HOF) + Fetch API</h1>
-        <p class="small">
-          คลิกปุ่มด้านขวาเพื่อเพิ่มการ์ด: แบบสร้างจากข้อมูลในหน้า (ใช้ higher-order functions)
-          หรือดึงจาก API (Fetch)
-        </p>
-      </div>
-      <div class="controls">
-        <button id="add-local">Add card (HOF)</button>
-        <button id="load-fetch" class="ghost">Load from Fetch API</button>
-        <button id="clear" class="ghost">Clear</button>
-      </div>
-    </header>
+  <header>
+    <h1>Cards — HOF & FetchAPI demo</h1>
+    <div class="controls">
+      <button id="btn-fetch-random">Add random card (Fetch)</button>
+      <button id="btn-fetch-3">Add 3 cards (Fetch)</button>
+      <button id="btn-open-form">Add by others</button>
+    </div>
+  </header>
 
-    <section class="grid" id="cardGrid" aria-live="polite"></section>
+  <main>
+    <section class="grid" id="cardsGrid" aria-live="polite"></section>
+  </main>
+
+  <!-- Modal / Form for others to add -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <h2 id="modalTitle">Add new cards</h2>
+      <form id="custom-form" aria-label="Add custom card">
+        <label>ชื่อผู้เพิ่ม (Your Name)
+          <input id="input-author" type="text" placeholder="Your Name (optional)" />
+        </label>
+
+        <label>หัวข้อ (Title) <span class="required">*</span>
+          <input id="input-title" type="text" placeholder="หัวข้อสั้น ๆ" required />
+        </label>
+
+        <label>คำอธิบาย (Description)
+          <textarea id="input-desc" rows="3" placeholder="คำอธิบายเพิ่มเติม (optional)"></textarea>
+        </label>
+
+        <label>ลิงก์ (URL) — หากใส่ต้องเป็นลิงก์ที่ถูกต้อง
+          <input id="input-link" type="url" placeholder="https://example.com (optional)" />
+        </label>
+
+        <div class="form-row">
+          <button type="submit" id="form-submit">Add card</button>
+          <button type="button" id="form-cancel" class="muted">Cancel</button>
+        </div>
+
+        <p id="form-msg" class="form-msg" aria-live="polite"></p>
+      </form>
+    </div>
   </div>
 
   <script src="app.js"></script>
