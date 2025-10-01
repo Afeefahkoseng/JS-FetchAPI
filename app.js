@@ -244,18 +244,36 @@ form.addEventListener('submit', async (ev) => {
    Fetch examples (เดิม)
 ----------------------------*/
 
+// Replace existing fetchRandomPhotoAndAdd() with this version
 async function fetchRandomPhotoAndAdd() {
-    try {
-        const randomId = Math.floor(Math.random() * 5000) + 1;
-        const res = await fetch(`https://jsonplaceholder.typicode.com/photos/${randomId}`);
-        if (!res.ok) throw new Error('Fetch failed: ' + res.status);
-        const data = await res.json();
-        addCard({ title: data.title || 'Fetched card', body: 'Fetched via Fetch API', image: data.url, author: 'Remote' });
-    } catch (err) {
-        console.error(err);
-        addCard({ title: 'Fetch error', body: 'Could not fetch remote photo — check network.', author: 'System' });
-    }
+  try {
+    const randomId = Math.floor(Math.random() * 5000) + 1;
+    const res = await fetch(`https://jsonplaceholder.typicode.com/photos/${randomId}`);
+    if (!res.ok) throw new Error('Fetch failed: ' + res.status);
+    const data = await res.json();
+
+    // Use English text explicitly for the random-single-photo action
+    const englishTitle = data.title || 'Random Photo';
+    const englishBody = 'Fetched via Fetch API';
+    const englishAuthor = 'Remote';
+
+    addCard({
+      title: englishTitle,
+      body: englishBody,
+      image: data.url,
+      author: englishAuthor
+    });
+  } catch (err) {
+    console.error(err);
+    // Add an English error card so the user sees English feedback for this action
+    addCard({
+      title: 'Fetch error',
+      body: 'Could not fetch remote photo — please check your network.',
+      author: 'System'
+    });
+  }
 }
+
 
 async function fetchSeveralAndAdd(count = 3) {
     try {
